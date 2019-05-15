@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../../assets/bootstrap-4.3.1/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        .container{
+            /* background-color: lightblue; */
+            display: flex;
+            justify-content: center;
+        }
+        td{
+            border: 1px solid #000;
+            text-align: center;
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            /* background: url("img/circle.png"); */
+            /* background-repeat: no-repeat;
+            background-size: 50px 50px;
+            background-position: center; */
+        }
+    </style>
+</head>
+<body>
+    <div id="teste" class="container">
+        <table>
+            <tr>
+                <td id="a1"></td>
+                <td id="a2"></td>
+                <td id="a3"></td>
+            </tr>
+            <tr>
+                <td id="b1"></td>
+                <td id="b2"></td>
+                <td id="b3"></td>
+            </tr>
+            <tr>
+                <td id="c1"></td>
+                <td id="c2"></td>
+                <td id="c3"></td>
+            </tr>
+        </table>
+    </div>
+    <script src="../../../assets/jquery/jquery-3.3.1.min.js"></script>
+    <script src="../../../assets/bootstrap-4.3.1/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        let count = 0;
+        // let countO = 0;
+        let countX = 0;
+        let lista = [];
+        let listaX = [];
+        $('td').click(
+            function(){
+                var id = $(this).attr('id')
+                // alert(id);
+                // $(`#${id}`).css({"background":"url('img/circle.png')"});
+               
+                var conf = false;
+                for (let index = 0; index < lista.length; index++) {
+                    if(lista[index] == id){
+                        conf = true;
+                        // console.log(conf+' '+id+'e' +lista[index]);
+                        alert('essa casa já foi jogada!');
+                    }
+                }
+                if(conf == false){
+                    count++;
+                    if (count % 2 == 0) {
+                        $(`#${id}`).css({"background-image":"url('img/circle.png')"});
+                        // alert(id);
+                    } else {
+                        $(`#${id}`).css({"background-image":"url('img/x.png')"});
+                        // listaX.push(id);
+                    }
+                    $(`#${id}`).css({"background-repeat":"no-repeat"});
+                    $(`#${id}`).css({"background-size":"50px 50px"});
+                    $(`#${id}`).css({"background-position":"center"});
+                    lista.push(id);
+                }
+                // console.log(lista);
+                // console.log(id);
+                // console.log(id[0]);
+                // console.log(id[1]);
+                // console.log('lista O: '+listaO);
+                // console.log('lista X: '+listaX);
+            })
+    </script>
+<!-- $('table').find('td').eq(4).css('background-image')
+"none"
+index.html:80 ["b2"]
+$('table').find('td').eq(4).css('background-image')
+"url("http://127.0.0.1:5500/git/pratica/teste/img/x.png")"
+$('table').find('td').eq(4).attr('id')
+"b2" -->
+
+
+<!-- ARROW VS FUNCTION -->
+<!-- $('.container').click(
+    ()=>{
+    alert( $(this).attr('id'))
+    
+    }
+    
+    )
+    
+    daí vi um exemplo no youtube usando function() e funcionou:
+    $('.container').click(
+    function(){
+    alert( $(this).attr('id'))
+    
+    }
+    
+    ) -->
+</body>
+</html>
